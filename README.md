@@ -1,6 +1,21 @@
 # envconfig-kit
 
-> Type-safe environment variables with fail-fast validation. Zero dependencies.
+Type-safe environment variables with fail-fast validation. Zero dependencies.
+
+```bash
+npm install envconfig-kit
+```
+
+```typescript
+import { env } from 'envconfig-kit'
+
+const config = env({
+  PORT: { type: 'number', default: 3000 },
+  API_KEY: { type: 'string', secret: true },
+  DEBUG: { type: 'boolean', default: false },
+  DATABASE_URL: { type: 'url' },
+})
+```
 
 [![npm version](https://img.shields.io/npm/v/envconfig-kit.svg)](https://www.npmjs.com/package/envconfig-kit)
 [![npm downloads](https://img.shields.io/npm/dm/envconfig-kit.svg)](https://www.npmjs.com/package/envconfig-kit)
@@ -250,6 +265,8 @@ console.log(generateDotenvExample(schema))
 // Export as JSON
 console.log(schemaToJSON(schema))
 ```
+
+If this saved you a 3 AM config bug, star the repo so others can find it.
 
 ## License
 
